@@ -5,6 +5,7 @@ namespace Ranky\MediaBundle\Domain\Model;
 
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\MappedSuperclass;
 use Ranky\MediaBundle\Domain\Event\MediaCreated;
 use Ranky\MediaBundle\Domain\Event\MediaDeleted;
 use Ranky\MediaBundle\Domain\Event\MediaDescriptionUpdated;
@@ -24,6 +25,7 @@ use Ranky\SharedBundle\Domain\ValueObject\UserIdentifier;
 
 
 #[ORM\Entity]
+#[MappedSuperclass]
 #[ORM\Table(name: 'ranky_media')]
 #[ORM\Index(columns: ['id', 'name', 'extension', 'mime', 'created_by'], name: 'search_idx')]
 class Media extends AggregateRoot
